@@ -57,15 +57,17 @@ namespace Examples.Charge.Infra.Data.Repositories
 
         public async Task<PersonPhone> DeleteAsync(int businessEntityId, string phoneNumber, int phoneNumberTypeId)
         {
+            var objPersonPhone = new PersonPhone() {  BusinessEntityID = businessEntityId, PhoneNumber = phoneNumber, PhoneNumberTypeID = phoneNumberTypeId };
             object[] prms = { businessEntityId, phoneNumber, phoneNumberTypeId};
-            PersonPhone objPersonPhone= await _context.PersonPhone.FindAsync(prms);
-            if (objPersonPhone != null)
+
+            if(await _context.PersonPhone.FindAsync(prms) != null)
             {
                 _context.PersonPhone.Remove(objPersonPhone);
                 await _context.SaveChangesAsync();
+                return objPersonPhone;
             }
 
-            return objPersonPhone;
+            return null;
         }
 
         public async Task<IEnumerable<PersonPhone>> FindAllAsync() => await Task.Run(() => _context.PersonPhone);

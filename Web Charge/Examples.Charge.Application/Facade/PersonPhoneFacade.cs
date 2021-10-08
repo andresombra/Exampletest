@@ -67,15 +67,19 @@ namespace Examples.Charge.Application.Facade
         {
             var response = new PersonPhoneResponse();
             var objPersonPhone = await _personPhoneService.DeleteAsync(businessEntityId, phoneNumber, phoneNumberTypeId);
-
-            response.PersonPhoneObjects = new PersonPhoneDto()
+            if (objPersonPhone != null)
             {
-                BusinessEntityID = objPersonPhone.BusinessEntityID,
-                PhoneNumber = objPersonPhone.PhoneNumber,
-                PhoneNumberTypeID = objPersonPhone.PhoneNumberTypeID
-            };
+                response.PersonPhoneObjects = new PersonPhoneDto()
+                {
+                    BusinessEntityID = objPersonPhone.BusinessEntityID,
+                    PhoneNumber = objPersonPhone.PhoneNumber,
+                    PhoneNumberTypeID = objPersonPhone.PhoneNumberTypeID
+                };
+                
+                return response;
+            }
 
-            return response;
+            return null;
         }
 
     }
