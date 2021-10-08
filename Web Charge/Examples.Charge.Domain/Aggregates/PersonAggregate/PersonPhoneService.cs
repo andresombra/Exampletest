@@ -25,7 +25,7 @@ namespace Examples.Charge.Domain.Aggregates.PersonAggregate
             return await _personPhoneRepository.UpdateAsync(personPhone);
         }
 
-        public async Task<int> DeleteAsync(int businessEntityId, string phoneNumber, int phoneNumberTypeId)
+        public async Task<PersonPhone> DeleteAsync(int businessEntityId, string phoneNumber, int phoneNumberTypeId)
         {
             return await _personPhoneRepository.DeleteAsync(businessEntityId, phoneNumber, phoneNumberTypeId);
         }

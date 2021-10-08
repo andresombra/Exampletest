@@ -12,6 +12,6 @@ namespace Examples.Charge.Application.Interfaces
     {
         Task<PersonPhoneResponse> AddAsync(PersonPhoneRequest personPhone);
         Task<PersonPhoneResponse> UpdateAsync(PersonPhoneRequest personPhone);
-        Task<int> DeleteAsync(int businessEntityId, string phoneNumber, int phoneNumberTypeId);
+        Task<PersonPhoneResponse> DeleteAsync(int businessEntityId, string phoneNumber, int phoneNumberTypeId);
     }
 }

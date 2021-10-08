@@ -10,6 +10,6 @@ namespace Examples.Charge.Domain.Aggregates.PersonAggregate.Interfaces
         Task<PersonPhone> FindAsync(PersonPhone personPhone);
         Task<PersonPhone> AddAsync(PersonPhone personPhone);
         Task<PersonPhone> UpdateAsync(PersonPhone personPhone);
-        Task<int> DeleteAsync(int businessEntityId, string phoneNumber, int phoneNumberTypeId);
+        Task<PersonPhone> DeleteAsync(int businessEntityId, string phoneNumber, int phoneNumberTypeId);
     }
 }

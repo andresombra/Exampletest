@@ -33,5 +33,15 @@ namespace Examples.Charge.API.Controllers
             var resp = await _personFacade.UpdateAsync(phoneRequest);
             return Response(resp);
         }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete([FromBody] PersonPhoneRequest phoneRequest)
+        {
+            var resp = await _personFacade.DeleteAsync(phoneRequest.PersonPhoneKeys.BusinessEntityID, 
+                phoneRequest.PersonPhoneKeys.PhoneNumber, 
+                phoneRequest.PersonPhoneKeys.PhoneNumberTypeID);
+
+            return Response(resp);
+        }
     }
 }
