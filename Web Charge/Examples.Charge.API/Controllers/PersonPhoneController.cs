@@ -23,6 +23,7 @@ namespace Examples.Charge.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] PersonPhoneRequest phoneRequest)
         {
+            //Cadastrar novo telefone
             var resp = await _personFacade.AddAsync(phoneRequest);
             return Response(resp);
         }
