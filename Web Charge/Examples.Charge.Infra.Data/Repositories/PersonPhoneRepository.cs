@@ -57,6 +57,7 @@ namespace Examples.Charge.Infra.Data.Repositories
 
         public async Task<PersonPhone> DeleteAsync(int businessEntityId, string phoneNumber, int phoneNumberTypeId)
         {
+            //Exclusao usando as tres chaves primarias
             var objPersonPhone = new PersonPhone() {  BusinessEntityID = businessEntityId, PhoneNumber = phoneNumber, PhoneNumberTypeID = phoneNumberTypeId };
             object[] prms = { businessEntityId, phoneNumber, phoneNumberTypeId};
 
